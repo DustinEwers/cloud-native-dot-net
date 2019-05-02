@@ -32,4 +32,4 @@ spec:
   ports:
   - port: 80
   selector:
-app: customer-app
+    app: customer-app
