@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: customer-app
+  labels:
+    app: customer-app
 spec:
   selector:
     matchLabels:
@@ -14,7 +16,7 @@ spec:
     spec:
       containers:
       - name: customer-app
-        image: {{acr_url}}/customer-app
+      image: {{image_name}}
         resources:
           requests:
             cpu: 100m
