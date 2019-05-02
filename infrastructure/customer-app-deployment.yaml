@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: customer-app
 spec:
+  selector:
+    matchLabels:
+      app: customer-app
   replicas: 3
   template:
     metadata:
