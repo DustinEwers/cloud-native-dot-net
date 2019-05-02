@@ -15,11 +15,18 @@ spec:
       containers:
       - name: customer-app
         image: {{acr_url}}/customer-app
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 200m
+            memory: 200Mi
         ports:
         - containerPort: 80
         envFrom:
         - configMapRef:
-          name: customer-app-config
+            name: customer-app-config
 ---
 apiVersion: v1
 kind: Service
