@@ -2,8 +2,8 @@
 
 
 # You'll need to set these variables.
-$kubernetesResourceGroup="<todo>"
-$acrName='<todo>'
+$kubernetesResourceGroup="customer-app" # needs to be unique to your subscription
+$acrName='<todo>' #must conform to the following pattern: '^[a-zA-Z0-9]*$
 $aksClusterName='<todo>'
 $location = 'eastus'
 $numberOfNodes = 1 # In production, you're going to want to use at least three nodes.
@@ -17,7 +17,7 @@ az acr create --resource-group $kubernetesResourceGroup --name $acrName --sku St
 Write-Host "Creating a Service Principal"
 $sp= az ad sp create-for-rbac --skip-assignment | ConvertFrom-Json
 
-$acrID=az acr show --resource-group $kubernetesResourceGroup --name $ACR_NAME --query "id" --output tsv
+$acrID=az acr show --resource-group $kubernetesResourceGroup --name $acrName --query "id" --output tsv
 
 Write-Host "Assigning the service principal to ACR pull"
 az role assignment create --assignee $sp.appId --scope $acrID --role acrpull
