@@ -4,6 +4,7 @@ metadata:
   name: customer-app
   labels:
     app: customer-app
+    aadpodidbinding: customer-app-aad-binding
 spec:
   selector:
     matchLabels:

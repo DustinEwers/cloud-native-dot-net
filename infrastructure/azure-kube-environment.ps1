@@ -1,6 +1,5 @@
 # This script builds an ACR (Azure Container Registry) and a Kubernetes Cluster
 
-
 # You'll need to set these variables.
 $kubernetesResourceGroup="customer-app" # needs to be unique to your subscription
 $acrName='<todo>' #must conform to the following pattern: '^[a-zA-Z0-9]*$
@@ -32,8 +31,3 @@ az aks create `
     --client-secret $sp.password `
     --generate-ssh-keys `
     --location $location
-
-
-
-
-

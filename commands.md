@@ -7,6 +7,6 @@ az aks get-credentials --resource-group $kubernetesResourceGroup --name $aksClus
 
 kubectl apply -f .\infrastructure\customer-app-deployment.yaml -o json
 
-customer-app.eastus.cloudapp.azure.com
-
 kubectl get service customer-app
+
+customer-app.eastus.cloudapp.azure.com

@@ -1,0 +1,18 @@
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzureIdentity
+metadata:
+  name: customer-app-identity
+  annotations:
+  - aadpodidentity.k8s.io/Behavior: namespaced
+spec:
+  type: 0
+  ResourceID: /subscriptions/<subid>/resourcegroups/{{resource_group}}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{{add_id_name}}
+  ClientID: {{id_client_id}}
+---
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzureIdentityBinding
+metadata:
+  name: customer-app-azure-identity-binding
+spec:
+  AzureIdentity: customer-app-identity
+  Selector: customer-app-aad-binding
