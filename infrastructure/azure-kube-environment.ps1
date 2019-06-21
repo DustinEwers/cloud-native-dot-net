@@ -2,8 +2,8 @@
 
 # You'll need to set these variables.
 $kubernetesResourceGroup="customer-app" # needs to be unique to your subscription
-$acrName='<todo>' #must conform to the following pattern: '^[a-zA-Z0-9]*$
-$aksClusterName='<todo>'
+$acrName='customerappacr00' #must conform to the following pattern: '^[a-zA-Z0-9]*$
+$aksClusterName='customer-app-cluster'
 $location = 'eastus'
 $numberOfNodes = 1 # In production, you're going to want to use at least three nodes.
 

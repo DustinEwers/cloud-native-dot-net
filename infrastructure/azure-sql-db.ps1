@@ -2,9 +2,9 @@
 
 # You'll need to adjust these variables accordingly
 
-$sqlAdminUserName = '<todo>'
-$sqlAdminPassword = '<todo>'
-$sqlServerName = "<todo>" # this needs to be all lower case
+$sqlAdminUserName = 'customerAdmin'
+$sqlAdminPassword = 'change-me-123'
+$sqlServerName = "customer-db-server" # this needs to be all lower case
 $resourceGroupName = "customer-data" #this needs to be unique to your subscription
 $sqlDatabaseName = 'customer-db'
 $location = 'eastus'
