@@ -6,8 +6,8 @@ metadata:
   - aadpodidentity.k8s.io/Behavior: namespaced
 spec:
   type: 0
-  ResourceID: /subscriptions/{{subscription_id}}/resourcegroups/{{resource_group}}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{{add_id_name}}
-  ClientID: {{id_client_id}}
+  ResourceID: /subscriptions/_{subscription_id}_/resourcegroups/_{resource_group}_/providers/Microsoft.ManagedIdentity/userAssignedIdentities/_{add_id_name}_
+  ClientID: _{id_client_id}_
 ---
 apiVersion: "aadpodidentity.k8s.io/v1"
 kind: AzureIdentityBinding

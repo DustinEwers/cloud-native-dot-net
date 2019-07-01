@@ -17,19 +17,19 @@ spec:
     spec:
       containers:
       - name: customer-app
-      image: {{image_name}}
-        resources:
-          requests:
-            cpu: 100m
-            memory: 100Mi
-          limits:
-            cpu: 200m
-            memory: 200Mi
-        ports:
-        - containerPort: 80
-        envFrom:
-        - configMapRef:
-            name: customer-app-config
+      image: _{image_name}_
+      resources:
+        requests:
+          cpu: 100m
+          memory: 100Mi
+        limits:
+          cpu: 200m
+          memory: 200Mi
+      ports:
+      - containerPort: 80
+      envFrom:
+      - configMapRef:
+          name: customer-app-config
 ---
 apiVersion: v1
 kind: Service

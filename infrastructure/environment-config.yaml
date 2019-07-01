@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: customer-app-config
 data:
-  ConnectionStrings.CustomerDb: {{connection_string}}
+  KeyVaultName: _{keyvault_name}_
