@@ -4,12 +4,15 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+  - group: AzureSubscriptionInfo
+
 steps:
 - task: Docker@0
   displayName: 'Build an image'
   inputs:
-    azureSubscription: 'Windows Azure MSDN - Visual Studio Ultimate (8326d01c-4f7e-47d6-b58f-8d4596245ec1)'
-    azureContainerRegistry: '{"loginServer":"customerappacr00.azurecr.io", "id" : "/subscriptions/8326d01c-4f7e-47d6-b58f-8d4596245ec1/resourceGroups/customer-app/providers/Microsoft.ContainerRegistry/registries/customerappacr00"}'
+    azureSubscription: '$(azureSubscription)'
+    azureContainerRegistry: '$(azureRegistry)'
     dockerFile: app/CustomerApp/Dockerfile
     defaultContext: false
     context: app
@@ -18,8 +21,8 @@ steps:
 - task: Docker@0
   displayName: 'Push an image'
   inputs:
-    azureSubscription: 'Windows Azure MSDN - Visual Studio Ultimate (8326d01c-4f7e-47d6-b58f-8d4596245ec1)'
-    azureContainerRegistry: '{"loginServer":"customerappacr00.azurecr.io", "id" : "/subscriptions/8326d01c-4f7e-47d6-b58f-8d4596245ec1/resourceGroups/customer-app/providers/Microsoft.ContainerRegistry/registries/customerappacr00"}'
+    azureSubscription: '$(azureSubscription)'
+    azureContainerRegistry: '$(azureRegistry)'
     action: 'Push an image'
     imageName: 'customer-app:$(Build.BuildNumber)'
 
