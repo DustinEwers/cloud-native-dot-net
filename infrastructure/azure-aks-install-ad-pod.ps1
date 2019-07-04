@@ -8,5 +8,4 @@ kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/maste
 
 # test your work with the following commands
 kubectl api-versions
-
 # you should see "aadpodidentity.k8s.io/v1" in the list

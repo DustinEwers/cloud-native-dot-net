@@ -9,11 +9,12 @@ spec:
   selector:
     matchLabels:
       app: customer-app
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
         app: customer-app
+        aadpodidbinding: customer-app-aad-binding
     spec:
       containers:
       - name: customer-app
