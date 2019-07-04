@@ -4,6 +4,7 @@ using Microsoft.Azure.KeyVault;
 using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.AzureKeyVault;
+using System;
 
 namespace CustomerApp
 {
@@ -20,8 +21,10 @@ namespace CustomerApp
                     if (context.HostingEnvironment.IsProduction())
                     {
                         config.AddEnvironmentVariables(prefix: "APP_");
-
+                        
                         var builtConfig = config.Build();
+
+                        Console.WriteLine($"Key Vault URL: https://{builtConfig["KeyVaultName"]}.vault.azure.net/");
 
                         var azureServiceTokenProvider = new AzureServiceTokenProvider();
                         var keyVaultClient = new KeyVaultClient(
