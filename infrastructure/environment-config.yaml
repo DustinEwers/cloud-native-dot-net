@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: customer-app-config
 data:
-  KeyVaultName: APP__{keyvault_name}_
+  KeyVaultName: _{keyvault_name}_
