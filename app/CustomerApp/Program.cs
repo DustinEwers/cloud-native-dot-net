@@ -18,24 +18,24 @@ namespace CustomerApp
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration((context, config) => {
-                    if (context.HostingEnvironment.IsProduction())
-                    {
-                        config.AddEnvironmentVariables(prefix: "APP_");
+                    //if (context.HostingEnvironment.IsProduction())
+                    //{
+                    //    config.AddEnvironmentVariables(prefix: "APP_");
                         
-                        var builtConfig = config.Build();
+                    //    var builtConfig = config.Build();
 
-                        Console.WriteLine($"Key Vault URL: https://{builtConfig["KeyVaultName"]}.vault.azure.net/");
+                    //    Console.WriteLine($"Key Vault URL: https://{builtConfig["KeyVaultName"]}.vault.azure.net/");
 
-                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        var keyVaultClient = new KeyVaultClient(
-                            new KeyVaultClient.AuthenticationCallback(
-                                azureServiceTokenProvider.KeyVaultTokenCallback));
+                    //    var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                    //    var keyVaultClient = new KeyVaultClient(
+                    //        new KeyVaultClient.AuthenticationCallback(
+                    //            azureServiceTokenProvider.KeyVaultTokenCallback));
 
-                        config.AddAzureKeyVault(
-                            $"https://{builtConfig["KeyVaultName"]}.vault.azure.net/",
-                            keyVaultClient,
-                            new DefaultKeyVaultSecretManager());
-                    }
+                    //    config.AddAzureKeyVault(
+                    //        $"https://{builtConfig["KeyVaultName"]}.vault.azure.net/",
+                    //        keyVaultClient,
+                    //        new DefaultKeyVaultSecretManager());
+                    //}
                 })
                 .UseStartup<Startup>()
                 .Build();
