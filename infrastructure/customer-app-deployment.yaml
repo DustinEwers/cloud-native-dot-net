@@ -26,9 +26,11 @@ spec:
             memory: 200Mi
         ports:
         - containerPort: 80
-        env:
-        - name: SQLAZURECONNSTR_CustomerDb
-          value: "_{connection-string}_"
+        envFrom:
+            secretRef: db-secret
+        # env:
+        # - name: SQLAZURECONNSTR_CustomerDb
+        #   value: "_{connection_string}_"
 ---
 apiVersion: v1
 kind: Service
