@@ -16,6 +16,8 @@ az acr create --resource-group $kubernetesResourceGroup --name $acrName --sku St
 Write-Host "Creating a Service Principal"
 $sp= az ad sp create-for-rbac --skip-assignment | ConvertFrom-Json
 
+Start-Sleep -Seconds 120
+
 $acrID=az acr show --resource-group $kubernetesResourceGroup --name $acrName --query "id" --output tsv
 
 Write-Host "Assigning the service principal to ACR pull"
