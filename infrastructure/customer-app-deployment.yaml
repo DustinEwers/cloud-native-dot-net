@@ -28,9 +28,6 @@ spec:
         - containerPort: 80
         envFrom:
             secretRef: db-secret
-        # env:
-        # - name: SQLAZURECONNSTR_CustomerDb
-        #   value: "_{connection_string}_"
 ---
 apiVersion: v1
 kind: Service
