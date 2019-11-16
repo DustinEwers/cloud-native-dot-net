@@ -27,7 +27,8 @@ spec:
         ports:
         - containerPort: 80
         envFrom:
-            secretRef: db-secret
+          - secretRef: 
+              name: db-secret
 ---
 apiVersion: v1
 kind: Service
