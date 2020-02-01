@@ -26,9 +26,14 @@ steps:
     action: 'Push an image'
     imageName: 'customer-app:$(Build.BuildNumber)'
 
+- task: CopyFiles@2
+  displayName: 'Copy migrations to the drop folder'
+  inputs:
+    SourceFolder: 'sql'
+    Contents: '**'
+    TargetFolder: 'infrastructure'
+
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   inputs:
     PathtoPublish: infrastructure
-
-
